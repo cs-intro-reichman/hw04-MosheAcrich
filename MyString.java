@@ -18,13 +18,46 @@ public class MyString {
 
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
+        String finalString = "";
+        for(int i = 0; i < str.length(); i++){
+            char a = str.charAt(i);
+            if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z'){
+                 a = (char) (str.charAt(i) + 32);
+            }
+            finalString = finalString +a;
+        }
         // Replace the following statement with your code
-        return null;
+        return finalString;
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        // Replace the following statement with your code
-        return false;
+
+
+    // si str2 es más largo que str1, imposible que esté contenido
+    if (str2.length() > str1.length()) return false;
+
+    // recorremos todos los posibles inicios
+    for (int i = 0; i <= str1.length() - str2.length(); i++) {
+
+        boolean match = true;
+
+        // verificar si desde esta posición todas las letras coinciden
+        for (int j = 0; j < str2.length(); j++) {
+            if (str1.charAt(i + j) != str2.charAt(j)) {
+                match = false;
+                break;
+            }
+        }
+
+        if (match == true) {
+            return true;
+            } // encontramos una coincidencia
     }
-}
+
+    return false; // no se encontró
+
+    }
+    }
+    
+
